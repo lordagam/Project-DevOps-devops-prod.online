@@ -86,7 +86,7 @@ jobs:
       run: git pull https://github.com/lordagam/Project-DevOps-devops-prod.online.git && ls -alh
 
     - name: go to dir-file 
-      run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/
+      run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/Terraform
 #    - name: pwd
 #      run: pwd && ls -alh && cd Terraform && ls -alh
 
