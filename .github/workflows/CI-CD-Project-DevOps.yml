@@ -82,7 +82,7 @@ jobs:
     
     - name: pull the repo 
       #run: git clone https://github.com/lordagam/Tomer-Joseph_project-test.git && ls -alh  && git pull https://github.com/lordagam/Project-DevOps-devops-prod.online.git
-      run:  cd Project-DevOps-devops-prod.online/ &&  ls -alh 
+      run: cd `/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online&&  ls -alh 
     
 #    - name: go to dir-file 
 #      run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/
