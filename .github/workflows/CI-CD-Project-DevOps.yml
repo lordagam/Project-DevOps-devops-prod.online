@@ -87,8 +87,9 @@ jobs:
 
     - name: go to dir-file 
       run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/Terraform
-    - name: pwd
-      run: cd .. && cd Terraform && ls -alh 
+    
+    - name: terraform init
+      run: cd .. && cd Terraform && ls -alh && terraform init
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     #- name: Setup Terraform
@@ -97,8 +98,8 @@ jobs:
     #    cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: terraform init
-      run:  terraform init
+  #  - name: terraform init
+  #    run:  terraform init
 
     # Checks that all Terraform configuration files adhere to a canonical format
    # - name: terraform validate
