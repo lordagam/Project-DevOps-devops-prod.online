@@ -131,10 +131,10 @@ jobs:
 
       #if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
     - name: issue-prod-argocd
-      run: cd terraform-aws-eks-work-jo && kubectl apply -f issue-prod-argocd.yaml
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && terraform plan && kubectl apply -f issue-prod-argocd.yaml
 
     - name: argo-ingress
-      run: cd terraform-aws-eks-work-jo && kubectl apply -f argo-ingress.yaml
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && terraform plan && kubectl apply -f argo-ingress.yaml
       
 
  slack-Notification:
