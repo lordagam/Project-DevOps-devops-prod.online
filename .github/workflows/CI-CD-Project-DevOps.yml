@@ -80,9 +80,9 @@ jobs:
 
    
     
-    - name: clone the repo 
+    - name: pall the repo 
       #run: git clone https://github.com/lordagam/Tomer-Joseph_project-test.git && ls -alh
-      run:  git clone https://github.com/lordagam/Project-DevOps-devops-prod.online.git &&  ls -alh 
+      run:  git pall https://github.com/lordagam/Project-DevOps-devops-prod.online.git &&  ls -alh 
       
       #with:
           #username: ${{ secrets.DOCKERHUB_USERNAME }}
