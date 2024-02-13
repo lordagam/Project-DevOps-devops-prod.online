@@ -1,4 +1,5 @@
-name: Project-DevOps
+name: CD-Project-DevOps
+need: CI-Project-DevOps
 on: 
   schedule:
    - cron: '0 0 * * *'
