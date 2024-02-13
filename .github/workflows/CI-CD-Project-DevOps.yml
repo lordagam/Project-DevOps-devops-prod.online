@@ -81,14 +81,13 @@ jobs:
    
     
     - name: pull the repo 
-      #run: git clone https://github.com/lordagam/Tomer-Joseph_project-test.git && ls -alh
-      run:  cd Project-DevOps-devops-prod.online/ && git pull https://github.com/lordagam/Project-DevOps-devops-prod.online.git &&  ls -alh 
-       
+      #run: git clone https://github.com/lordagam/Tomer-Joseph_project-test.git && ls -alh  && git pull https://github.com/lordagam/Project-DevOps-devops-prod.online.git
+      run:  cd Project-DevOps-devops-prod.online/ &&  ls -alh 
     
-    - name: go to dir-file 
-      run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/
-    - name: pwd
-      run: pwd && ls -alh && cd Terraform && ls -alh
+#    - name: go to dir-file 
+#      run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/
+#    - name: pwd
+#      run: pwd && ls -alh && cd Terraform && ls -alh
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     #- name: Setup Terraform
