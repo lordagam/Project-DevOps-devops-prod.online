@@ -90,10 +90,10 @@ jobs:
    
     
     - name: go to dir-file 
-      run: cd /home/ec2-user/actions-runner/_work/Project-DevOps-devops-prod.online/Terraform
+      run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/Project-DevOps-devops-prod.online/Project-DevOps-devops-prod.online/
 
     - name: pwd
-      run: pwd && ls -alh && cd terraform-aws-eks-work-jo && ls -alh
+      run: pwd && ls -alh && cd Terraform && ls -alh
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     #- name: Setup Terraform
@@ -103,18 +103,18 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: terraform init
-      run:  cd terraform-aws-eks-work-jo && terraform init
+      run:  terraform init
 
     # Checks that all Terraform configuration files adhere to a canonical format
-    - name: terraform validate
-      run: cd terraform-aws-eks-work-jo && terraform validate
+   # - name: terraform validate
+   #   run: cd terraform-aws-eks-work-jo && terraform validate
 
     - name: pwd
       run: pwd && ls -alh
       
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: cd terraform-aws-eks-work-jo && terraform plan
+      run:  terraform plan
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
@@ -125,8 +125,8 @@ jobs:
       run: cd terraform-aws-eks-work-jo && pwd && ls -alh
 
 
-    - name: Terraform Apply
-      run: cd terraform-aws-eks-work-jo &&terraform apply -auto-approve
+    #- name: Terraform Apply
+      #run: cd terraform-aws-eks-work-jo &&terraform apply -auto-approve
 
 
     - name: pwd
