@@ -55,7 +55,7 @@ jobs:
           update_pr_with_scan_results: true
    
  CD-Terraform:
-    #needs: Snyk-security
+    needs: Snyk-security
     runs-on: self-hosted    
     defaults:
       run:
