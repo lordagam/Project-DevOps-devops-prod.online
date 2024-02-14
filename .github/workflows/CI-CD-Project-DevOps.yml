@@ -92,7 +92,7 @@ jobs:
       run: kubectl create namespace cert-manager
       
     - name: install_cert_manager
-      run: cd .. && cd letsencrypt && ls -alh && ./install_cert_manager.sh
+      run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
 
     - name: repo add argo-cd
       run: helm repo add argo-cd https://argoproj.github.io/argo-helm  
