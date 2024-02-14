@@ -119,6 +119,9 @@ jobs:
     - name: apply argo-ingress
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl delete -f argo-ingress.yaml && kubectl apply -f argo-ingress.yaml
 
+    - name: show certificate
+      run: kubectl get certificate -A
+    
     - name: Deploy React-App
       run: cd .. && cd react-app && cd deployment && cd argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
    
