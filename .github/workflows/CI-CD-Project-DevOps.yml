@@ -88,8 +88,8 @@ jobs:
     - name: install_Ingress
       run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
 
-    - name: ns-cert-manager
-      run: kubectl create namespace cert-manager
+   # - name: ns-cert-manager
+    #  run: kubectl create namespace cert-manager
       
     - name: install_cert_manager
       run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
