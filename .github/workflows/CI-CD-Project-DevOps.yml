@@ -117,7 +117,7 @@ jobs:
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl delete -f issue-prod-argocd.yaml && kubectl apply -f issue-prod-argocd.yaml
 
     - name: apply argo-ingress
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl delete -f argo-ingress.yaml && kubectl apply -f argo-ingress.yaml
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
 
     - name: show certificate
       run: kubectl get certificate -A
