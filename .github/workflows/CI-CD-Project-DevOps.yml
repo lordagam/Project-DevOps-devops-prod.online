@@ -103,8 +103,13 @@ jobs:
    # - name: install argo-cd
    #   run: helm install argo-cd charts/argo-cd/ 
 
+    # - name: ns-argocd
+    #  run: kubectl create namespace argocd
+
+
     - name: install argo-cd
       run: kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
     - name: install issue-prod-argocd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
 
