@@ -61,38 +61,22 @@ jobs:
  CD-Terraform:
     #needs: Snyk-security
     runs-on: self-hosted    
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
-
         shell: bash
-
     steps:
-    # Checkout the repository to the GitHub Actions runner
-
     - name: pwd
       run: pwd 
-   
-    #- name: del old  repo 
-      #run: rm -rf Tomer-Joseph_project-test && ls -alh
-      #run: rm -rf terraform-aws-eks-work-jo && ls -alh
 
-
-   
-    
-    - name: pull the repo 
-      #run: git clone https://github.com/lordagam/Tomer-Joseph_project-test.git && ls -alh  && git pull https://github.com/lordagam/Project-DevOps-devops-prod.online.git
-      #run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work && git pull https://github.com/lordagam/Project-DevOps-devops-prod.online.git && cd Project-DevOps-devops-prod.online && ls -alh 
+    - name: pull the Repo 
       run: git pull https://github.com/lordagam/Project-DevOps-devops-prod.online.git && ls -alh
 
-    - name: go to dir-file 
+    - name: Go To Dir-File 
       run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/Terraform
     
     - name: Terraform Init
       run: cd .. && cd Terraform && ls -alh && terraform init
 
-
-    # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Validate
       run: cd .. && cd Terraform && ls -alh && terraform validate
 
