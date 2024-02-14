@@ -121,6 +121,16 @@ jobs:
 
     - name: show certificate
       run: kubectl get certificate -A
+        
+    - name: show Node
+      run: kubectl get node
+    
+    - name: show Pods
+      run: kubectl get pods
+
+    - name: show svc
+      run: kubectl get svc -A
+
     
     - name: Deploy React-App
       run: cd .. && cd react-app && cd deployment && cd argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
