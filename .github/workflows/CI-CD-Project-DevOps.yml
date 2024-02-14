@@ -112,14 +112,14 @@ jobs:
     - name: Deploy React-App
       run: cd .. && cd react-app && deployment && argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
 
-    - name: Deploy Grafana
-      #run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
+    #- name: Deploy Grafana
+    #  run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
 
-    - name: Deploy prometheus
-      #run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
+    #- name: Deploy prometheus
+    #  run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
 
-    - name: Deploy Loki
-      #run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
+    #- name: Deploy Loki
+    #  run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
 
 
 
