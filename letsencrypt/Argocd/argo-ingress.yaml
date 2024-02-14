@@ -17,7 +17,7 @@ spec:
   - host: argo.tomer-aws-project.online
     http:
       paths:
-      - path: ./letsencrypt/Argocd
+      - path: /letsencrypt/Argocd
         pathType: Prefix
         backend:
           service:
