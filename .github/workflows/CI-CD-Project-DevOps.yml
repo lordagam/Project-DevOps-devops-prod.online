@@ -80,7 +80,7 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && terraform plan
       
     - name: Terraform Apply
-      run: cd terraform-aws-eks-work-jo &&terraform apply -auto-approve
+      run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
     
     - name: aws eks kubeconfig 
       run: aws eks --region sa-east-1 update-kubeconfig --name eks-cluster
