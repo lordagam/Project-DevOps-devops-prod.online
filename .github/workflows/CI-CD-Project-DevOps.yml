@@ -97,8 +97,8 @@ jobs:
     - name: repo add argo-cd
       run: helm repo add argo-cd https://argoproj.github.io/argo-helm  
    
-    - name: update charts
-      run: helm dep update charts/argo-cd/  
+   # - name: update charts
+   #   run: helm dep update charts/argo-cd/  
     
     - name: install argo-cd
       run: helm install argo-cd charts/argo-cd/  
