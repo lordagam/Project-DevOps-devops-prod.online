@@ -88,44 +88,22 @@ jobs:
     - name: go to dir-file 
       run: cd /home/ec2-user/Project-DevOps-devops-prod.online-actions-runner/_work/Project-DevOps-devops-prod.online/Terraform
     
-    - name: terraform init
+    - name: Terraform Init
       run: cd .. && cd Terraform && ls -alh && terraform init
 
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    #- name: Setup Terraform
-    #  uses: hashicorp/setup-terraform@v1
-    #  with:
-    #    cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-  #  - name: terraform init
-  #    run:  terraform init
 
     # Checks that all Terraform configuration files adhere to a canonical format
-   # - name: terraform validate
-   #   run: cd terraform-aws-eks-work-jo && terraform validate
+    - name: Terraform Validate
+      run: cd .. && cd Terraform && ls -alh && terraform validate
 
     - name: Terraform Plan
       run: cd .. && cd Terraform && ls -alh && terraform plan
       
-    # Generates an execution plan for Terraform
-  #  - name: Terraform Plan
-  #    run:  terraform plan
-
-      # On push to "main", build or change infrastructure according to Terraform configuration files
-      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
-    #- name: Terraform Apply
-    #  run: terraform apply -auto-approve -input=false
-
-#    - name: pwd
-#      run: cd terraform-aws-eks-work-jo && pwd && ls -alh
-
-
     #- name: Terraform Apply
       #run: cd terraform-aws-eks-work-jo &&terraform apply -auto-approve
     
     - name: aws eks kubeconfig 
-      run: aws eks --region ap-northeast-1 update-kubeconfig --name eks-cluster
+      run: aws eks --region sa-east-1 update-kubeconfig --name eks-cluster
 
     - name: install_Ingress
       run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
@@ -150,6 +128,22 @@ jobs:
 
     - name: apply argo-ingress
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
+
+    - name: Deploy React-App
+      run: cd .. && cd react-app && deployment && argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
+
+    - name: Deploy Grafana
+      #run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
+
+    - name: Deploy prometheus
+      #run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
+
+    - name: Deploy Loki
+      #run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
+
+
+
+
       
 
  slack-Notification:
