@@ -103,7 +103,7 @@ jobs:
    # - name: install argo-cd
    #   run: helm install argo-cd charts/argo-cd/ 
 
-     - name: ns-argocd
+    - name: ns-argocd
       run: kubectl create namespace argocd
 
 
