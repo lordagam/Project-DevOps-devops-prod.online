@@ -53,10 +53,6 @@ jobs:
           SEVERITY_THRESHOLD: "critical"
           FILE: "example-*"
           update_pr_with_scan_results: true
-
-
-
-
    
  CD-Terraform:
     #needs: Snyk-security
