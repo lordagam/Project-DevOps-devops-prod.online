@@ -79,29 +79,29 @@ jobs:
     - name: Terraform Plan
       run: cd .. && cd Terraform && ls -alh && terraform plan
       
-    #- name: Terraform Apply
-    #  run: cd terraform-aws-eks-work-jo &&terraform apply -auto-approve
+    - name: Terraform Apply
+      run: cd terraform-aws-eks-work-jo &&terraform apply -auto-approve
     
-    #- name: aws eks kubeconfig 
-    #  run: aws eks --region sa-east-1 update-kubeconfig --name eks-cluster
+    - name: aws eks kubeconfig 
+      run: aws eks --region sa-east-1 update-kubeconfig --name eks-cluster
 
-    #- name: install_Ingress
-    #  run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
+    - name: install_Ingress
+      run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
 
-    #- name: ns-cert-manager
-    #  run: kubectl create namespace cert-manager
+    - name: ns-cert-manager
+      run: kubectl create namespace cert-manager
       
-    #- name: install_cert_manager
-    #  run: cd .. && cd letsencrypt && ls -alh && ./install_cert_manager.sh
+    - name: install_cert_manager
+      run: cd .. && cd letsencrypt && ls -alh && ./install_cert_manager.sh
 
-    #- name: repo add argo-cd
-    #  run: helm repo add argo-cd https://argoproj.github.io/argo-helm  
+    - name: repo add argo-cd
+      run: helm repo add argo-cd https://argoproj.github.io/argo-helm  
    
-    #- name: update charts
-    #  run: helm dep update charts/argo-cd/  
+    - name: update charts
+      run: helm dep update charts/argo-cd/  
     
-    #- name: install argo-cd
-    #  run: helm install argo-cd charts/argo-cd/  
+    - name: install argo-cd
+      run: helm install argo-cd charts/argo-cd/  
 
     - name: install issue-prod-argocd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
