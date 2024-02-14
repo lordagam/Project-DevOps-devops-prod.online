@@ -100,8 +100,12 @@ jobs:
    # - name: update charts
    #   run: helm dep update charts/argo-cd/  
     
+   # - name: install argo-cd
+   #   run: helm install argo-cd charts/argo-cd/ 
+
     - name: install argo-cd
-      run: helm install argo-cd charts/argo-cd/  
+      run: kubectl apply -k https://github.com/argoproj/argo-cd/tree/master/manifests/crds
+
 
     - name: install issue-prod-argocd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
