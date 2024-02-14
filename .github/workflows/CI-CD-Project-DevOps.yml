@@ -103,8 +103,8 @@ jobs:
    # - name: install argo-cd
    #   run: helm install argo-cd charts/argo-cd/ 
 
-    - name: ns-argocd
-      run: kubectl create namespace argocd
+    #- name: ns-argocd
+    #  run: kubectl create namespace argocd
 
 
     - name: install argo-cd
@@ -118,6 +118,9 @@ jobs:
 
     - name: Deploy React-App
       run: cd .. && cd react-app && deployment && argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
+  
+    - name: Deploy React-App
+      run: cd .. && cd react-app && cd deployment && cd argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
 
     #- name: Deploy Grafana
     #  run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f argo-ingress.yaml
