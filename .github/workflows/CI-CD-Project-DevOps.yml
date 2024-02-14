@@ -94,15 +94,15 @@ jobs:
     - name: install_cert_manager
       run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
 
-    - name: repo add argo-cd
-      run: helm repo add argocd https://argoproj.github.io/argo-helm
+    #- name: repo add argo-cd
+    #  run: helm repo add argocd https://argoproj.github.io/argo-helm
       #run: helm repo add argo https://argoproj.github.io/argo-helm
    
    # - name: update charts
    #   run: helm dep update charts/argo-cd/  
     
-    - name: install argo-cd
-      run: helm install argocd charts/argo-cd/ 
+    #- name: install argo-cd
+    #  run: helm install argocd charts/argo-cd/ 
 
     #- name: ns-argocd
     #  run: kubectl create namespace argocd
