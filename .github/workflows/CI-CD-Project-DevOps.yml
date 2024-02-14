@@ -108,8 +108,12 @@ jobs:
     #  run: kubectl create namespace argocd
 
 
+    - name: uninstall argo-cd
+      run: kubectl delete -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -n argocd
+      
     - name: install argo-cd
       run: kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -n argocd
+
 
     - name: Pass argocd
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
