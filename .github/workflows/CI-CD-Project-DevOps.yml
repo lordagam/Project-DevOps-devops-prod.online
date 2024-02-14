@@ -137,7 +137,7 @@ jobs:
       run: kubectl get node
     
     - name: show Pods
-      run: kubectl get pods
+      run: kubectl get pods -A
 
     - name: show svc
       run: kubectl get svc -A
