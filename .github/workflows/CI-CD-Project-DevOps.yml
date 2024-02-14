@@ -118,11 +118,17 @@ jobs:
     - name: Pass argocd
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
+    - name: uninstall issue-prod-argocd
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl delete -f issue-prod-argocd.yaml 
+
     - name: install issue-prod-argocd
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl delete -f issue-prod-argocd.yaml && kubectl apply -f issue-prod-argocd.yaml
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
+
+    - name: uninstall argo-ingress
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl delete -f argo-ingress.yaml  
 
     - name: apply argo-ingress
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl delete -f issue-prod-argocd.yaml  && kubectl apply -f argo-ingress.yaml
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f argo-ingress.yaml
 
     - name: show certificate
       run: kubectl get certificate -A
