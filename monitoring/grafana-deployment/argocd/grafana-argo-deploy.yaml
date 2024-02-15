@@ -15,7 +15,7 @@ spec:
       - Replace=true
   project: default
   source: 
-    path: grafana-deployment
+    path: monitoring/grafana-deployment
     repoURL: "https://github.com/lordagam/Tomer-Joseph_project-test.git" 
     targetRevision: main
     #helm:
