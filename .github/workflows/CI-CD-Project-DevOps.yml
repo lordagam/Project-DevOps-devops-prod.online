@@ -140,12 +140,6 @@ jobs:
     - name: Deploy React-App
       run: cd .. && cd react-app && cd deployment && cd argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
 
-    - name: delete namespace-monitoring
-      run: kubectl delete namespace monitoring    
-    
-    - name: namespace monitoring
-      run: kubectl create namespace monitoring
-
     - name: Deploy Grafana
       run: cd .. && cd monitoring && cd grafana-deployment && cd argocd && ls -alh  && kubectl apply -f grafana-argo-deploy.yaml
    
