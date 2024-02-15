@@ -83,7 +83,7 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
     
     - name: output cluster name
-      run: terraform output -json | jq -r '.cluster_name.value'
+      run: cd .. && cd Terraform && ls -alh && terraform output -json | jq -r '.cluster_name.value'
     
     - name: aws eks kubeconfig 
       run: aws eks --region sa-east-1 update-kubeconfig --name $(terraform output -json | jq -r '.cluster_name.value')
