@@ -94,42 +94,44 @@ jobs:
     - name: install_cert_manager
       run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
 
-    - name: repo add argo-cd
-      run: helm repo add argocd https://argoproj.github.io/argo-helm
+    #- name: repo add argo-cd
+    #  run: helm repo add argocd https://argoproj.github.io/argo-helm
       #run: helm repo add argo https://argoproj.github.io/argo-helm
    
     #- name: update charts
     #  run: helm update argo-cd  
     
-    - name: install argo-cd
-      run: helm install argocd argo/argo-cd
+    #- name: install argo-cd
+      #run: helm install argocd argo/argo-cd
 
     #- name: ns-argocd
     #  run: kubectl create namespace argocd
 
 
-    - name: uninstall argo-cd
-      run: kubectl delete -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -n argocd
+    #- name: uninstall argo-cd
+    #  run: kubectl delete -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -n argocd
       
-    #- name: install argo-cd
-    #  run: kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -n argocd
+    - name: install argo-cd
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -n argocd -f install.yaml
 
 
     - name: Pass argocd
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
-    #- name: uninstall issue-prod-argocd
-    #  run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl delete -f issue-prod-argocd.yaml 
-
-    - name: install issue-prod-argocd
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
 
     #- name: uninstall argo-ingress
     #  run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl delete -f argo-ingress.yaml  
 
     - name: apply argo-ingress
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f argo-ingress.yaml
-
+  
+    - name:  get ingress ns argocd
+      run: kubectl get ingress -n argocd
+    
+    - name: install issue-prod-argocd
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
+    
+    
     - name: show certificate
       run: kubectl get certificate -A
         
