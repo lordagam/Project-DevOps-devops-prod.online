@@ -70,20 +70,20 @@ module "eks" {
     one = {
       name = "node-group-1"
 
-      instance_types = ["t3.small"]
+      instance_types = ["t3.2xlarge"]
 
       min_size     = 1
-      max_size     = 3
+      max_size     = 10
       desired_size = 2
     }
 
     two = {
       name = "node-group-2"
 
-      instance_types = ["t3.small"]
+      instance_types = ["t3.2xlarge"]
 
       min_size     = 1
-      max_size     = 2
+      max_size     = 10
       desired_size = 1
     }
   }
