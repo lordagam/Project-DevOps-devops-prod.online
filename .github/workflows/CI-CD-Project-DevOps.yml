@@ -99,6 +99,12 @@ jobs:
     
     - name: delete namespace-argocd
       run: kubectl delete namespace argocd
+
+    - name: delete monitoring
+      run: kubectl delete namespace monitoring
+
+    - name: namespace-monitoring
+      run: kubectl create namespace monitoring
     
     - name: namespace-argocd
       run: kubectl create namespace argocd
