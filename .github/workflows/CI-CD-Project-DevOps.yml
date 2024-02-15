@@ -101,7 +101,7 @@ jobs:
       run: kubectl create namespace argocd
     
     - name: install argo-cd
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -n argocd -f install.yaml
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl create namespace argocd && kubectl apply -n argocd -f install.yaml
 
 
     - name: Pass argocd
