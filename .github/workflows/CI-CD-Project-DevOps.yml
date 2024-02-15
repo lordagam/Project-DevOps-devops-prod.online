@@ -117,6 +117,9 @@ jobs:
     - name: install argo-cd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -n argocd -f install.yaml
 
+    - name: ns-argocd
+      run: kubectl create namespace argocd
+
 
     - name: Pass argocd
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
