@@ -83,10 +83,10 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
     
     - name: output cluster name
-      run: cd .. && cd Terraform && ls -alh && terraform output -json | jq -r '.cluster_name.value'
+      run: cd .. && cd Terraform && ls -alh && cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}'
     
     - name: aws eks kubeconfig 
-      run: aws eks --region sa-east-1 update-kubeconfig --name $(terraform output -json | jq -r '.cluster_name.value')
+      run: cd .. && cd Terraform && ls -alh && aws eks --region sa-east-1 update-kubeconfig --name $(cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}')
 
     - name: install_Ingress
       run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
