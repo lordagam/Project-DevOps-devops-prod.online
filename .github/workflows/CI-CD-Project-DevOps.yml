@@ -113,12 +113,13 @@ jobs:
 
     #- name: uninstall argo-cd
     #  run: kubectl delete -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -n argocd
-      
+    
+    - name: ns-argocd
+      run: kubectl create namespace argocd
+    
     - name: install argo-cd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -n argocd -f install.yaml
 
-    - name: ns-argocd
-      run: kubectl create namespace argocd
 
 
     - name: Pass argocd
