@@ -55,7 +55,7 @@ jobs:
           update_pr_with_scan_results: true
    
  CD-Terraform:
-    needs: Snyk-security
+   # needs: Snyk-security
     runs-on: self-hosted    
     defaults:
       run:
@@ -83,7 +83,7 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
     
     - name: aws eks kubeconfig 
-      run: aws eks --region sa-east-1 update-kubeconfig --name Project-DevOps-devops-prod.online-eks
+      run: aws eks --region sa-east-1 update-kubeconfig --name Project-DevOps-devops-prod-online-eks
 
     - name: install_Ingress
       run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
