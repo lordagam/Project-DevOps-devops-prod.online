@@ -15,6 +15,6 @@ spec:
       - Replace=true
   project: default
   source: 
-    path: react-app/deployment/argocd
+    path: react-app
     repoURL: "https://github.com/lordagam/Tomer-Joseph_project-test.git" 
     targetRevision: main
