@@ -119,7 +119,7 @@ jobs:
       run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
     
     - name: delete namespace-argocd
-      run: kubectl delete namespace argocd &> /dev/null 
+      run: kubectl delete namespace argocd
       
     - name: delete monitoring
       run: kubectl delete namespace monitoring
