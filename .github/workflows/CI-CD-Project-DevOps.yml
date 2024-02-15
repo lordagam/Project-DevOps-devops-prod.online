@@ -89,20 +89,21 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && aws eks --region sa-east-1 update-kubeconfig --name $(cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}')
 
     - name: delete cert-manager
-      run: kubectl delete namespace cert-manager
+      run: kubectl delete namespace cert-manager || true
 
     - name: namespace-cert-manager
-      run: kubectl create namespace cert-manager
+      run: kubectl create namespace cert-manager 
 
     
     - name: delete ingress-nginx
-      run: kubectl delete namespace ingress-nginx
+      run: kubectl delete namespace ingress-nginx || true
 
     - name: namespace-ingress-nginx
-      run: kubectl create namespace ingress-nginx
+      run: kubectl create namespace ingress-nginx 
+
       
     - name: delete react
-      run: kubectl delete namespace react
+      run: kubectl delete namespace react  || true
 
     - name: namespace-react
       run: kubectl create namespace react
@@ -119,13 +120,13 @@ jobs:
       run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
     
     - name: delete namespace-argocd
-      run: kubectl delete namespace argocd
+      run: kubectl delete namespace argocd  || true
       
     - name: delete monitoring
-      run: kubectl delete namespace monitoring
+      run: kubectl delete namespace monitoring  || true
 
     - name: namespace-monitoring
-      run: kubectl create namespace monitoring
+      run: kubectl create namespace monitoring  
     
     - name: namespace-argocd
       run: kubectl create namespace argocd
