@@ -82,8 +82,11 @@ jobs:
     - name: Terraform Apply
       run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
     
+    - name: output cluster name
+      run: terraform output -json | jq -r '.cluster_name.value'
+    
     - name: aws eks kubeconfig 
-      run: aws eks --region sa-east-1 update-kubeconfig --name Project-DevOps-devops-prod-online-eks
+      run: aws eks --region sa-east-1 update-kubeconfig --name $(terraform output -json | jq -r '.cluster_name.value')
 
     - name: install_Ingress
       run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
