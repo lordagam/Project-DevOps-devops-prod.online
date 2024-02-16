@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: letsencrypt-prod
+  name: argocd-secret
   namespace: argocd
 spec:
   acme:
@@ -11,7 +11,7 @@ spec:
     email: tomeroz802@gmail.com
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
-      name: letsencrypt-prod
+      name: argocd-secret
     # Enable the HTTP-01 challenge provider
     solvers:
       - http01:
