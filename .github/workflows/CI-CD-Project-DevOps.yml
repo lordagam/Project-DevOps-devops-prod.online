@@ -174,22 +174,22 @@ jobs:
       run: kubectl get svc -A
 
     
-    #- name: Deploy React-App
-    #  run: cd .. && cd react-app && cd deployment && cd argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
+    - name: Deploy React-App
+      run: cd .. && cd react-app && cd deployment && cd argocd && ls -alh  && kubectl apply -f react-app-argo-deploy.yaml
 
-   # - name: Deploy Grafana
-   #   run: cd .. && cd monitoring && cd grafana-deployment && cd argocd && ls -alh  && kubectl apply -f grafana-argo-deploy.yaml
+    - name: Deploy Grafana
+      run: cd .. && cd monitoring && cd grafana-deployment && cd argocd && ls -alh  && kubectl apply -f grafana-argo-deploy.yaml
    
-    #- name: install issue-prod-argocd
-    #  run: cd .. && cd monitoring && cd grafana-deployment && ls -alh  && kubectl apply -f issue-grafana-prod.yaml
+    - name: install issue-prod-argocd
+      run: cd .. && cd monitoring && cd grafana-deployment && ls -alh  && kubectl apply -f issue-grafana-prod.yaml
 
 
-   # - name: Deploy prometheus
-   #   run: cd .. && cd monitoring && cd prometheus-deployment && cd argocd && ls -alh  && kubectl apply -f prometheus-argo-deploy.yaml
+    - name: Deploy prometheus
+      run: cd .. && cd monitoring && cd prometheus-deployment && cd argocd && ls -alh  && kubectl apply -f prometheus-argo-deploy.yaml
    
       
-   # - name: Deploy Loki
-   #   run: cd .. && cd monitoring && cd loki && cd argocd && ls -alh  && kubectl apply -f loki-argo-deploy.yaml
+    - name: Deploy Loki
+      run: cd .. && cd monitoring && cd loki && cd argocd && ls -alh  && kubectl apply -f loki-argo-deploy.yaml
 
 
 
