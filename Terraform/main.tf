@@ -52,7 +52,7 @@ module "vpc" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "20.0"
+  version = "~> 20.0"
 
   cluster_name    = local.cluster_name
   cluster_version = "1.29"
@@ -70,7 +70,7 @@ module "eks" {
     one = {
       name = "node-group-1"
 
-      instance_types = ["t2.2xlarge"]
+      instance_types = ["t2.xlarge"]
 
       min_size     = 1
       max_size     = 8
@@ -80,7 +80,7 @@ module "eks" {
     two = {
       name = "node-group-2"
 
-      instance_types = ["t2.2xlarge"]
+      instance_types = ["t2.xlarge"]
 
       min_size     = 1
       max_size     = 8
