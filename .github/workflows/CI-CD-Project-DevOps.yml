@@ -88,37 +88,27 @@ jobs:
     - name: aws eks kubeconfig 
       run: cd .. && cd Terraform && ls -alh && aws eks --region sa-east-1 update-kubeconfig --name $(cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}')
 
+    
+    
+    
     - name: delete cert-manager
       run: kubectl delete namespace cert-manager || true
 
     - name: namespace-cert-manager
       run: kubectl create namespace cert-manager 
-
     
     - name: delete ingress-nginx
       run: kubectl delete namespace ingress-nginx || true
 
     - name: namespace-ingress-nginx
       run: kubectl create namespace ingress-nginx 
-
-      
+  
     - name: delete react
       run: kubectl delete namespace react  || true
 
     - name: namespace-react
       run: kubectl create namespace react
 
-    
-    
-    - name: install_Ingress
-      run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
-
-   # - name: ns-cert-manager
-    #  run: kubectl create namespace cert-manager
-      
-    - name: install_cert_manager
-      run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
-    
     - name: delete namespace-argocd
       run: kubectl delete namespace argocd  || true
       
@@ -130,6 +120,25 @@ jobs:
     
     - name: namespace-argocd
       run: kubectl create namespace argocd
+
+    
+   
+    
+    
+    
+    
+    
+    
+    - name: install_Ingress
+      run: kubectl apply -n -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/aws/deploy.yaml
+
+      
+    - name: install_cert_manager
+      run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
+    
+    
+    - name: uninstall argo-ingress
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl delete -n ingress-nginx -f argo-ingress.yaml 
     
     - name: install argo-cd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -n argocd -f install.yaml && sleep 30
