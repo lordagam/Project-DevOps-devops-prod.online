@@ -21,6 +21,14 @@ spec:
         resources:
           requests:
             cpu: "100m"
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always  
         ports:
         - containerPort: 3000
+        readinessProbe:  
+          httpGet:
+            path: /
+            port: 3000
+        livenessProbe:  
+          httpGet:
+            path: /
+            port: 3000
