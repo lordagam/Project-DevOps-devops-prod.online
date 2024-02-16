@@ -87,10 +87,7 @@ jobs:
     
     - name: aws eks kubeconfig 
       run: cd .. && cd Terraform && ls -alh && aws eks --region sa-east-1 update-kubeconfig --name $(cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}')
-
-    
-    
-    
+      
     - name: delete cert-manager
       run: kubectl delete namespace cert-manager || true
 
@@ -119,14 +116,7 @@ jobs:
       run: kubectl create namespace monitoring  
     
     - name: namespace-argocd
-      run: kubectl create namespace argocd
-
-    
-   
-    
-    
-    
-    
+      run: kubectl create namespace argocd    
     
     
     - name: install_Ingress
@@ -135,21 +125,13 @@ jobs:
       
     - name: install_cert_manager
       run: cd .. && cd letsencrypt && ls -alh && chmod +x ./install_cert_manager.sh && ./install_cert_manager.sh
-    
-    
-    - name: uninstall argo-ingress
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl delete -n ingress-nginx -f argo-ingress.yaml 
-    
+        
     - name: install argo-cd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -n argocd -f install.yaml && sleep 30
-
 
     - name: Pass argocd
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
-
-    #- name: uninstall argo-ingress
-    #  run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl delete -f argo-ingress.yaml  
 
     - name: apply argo-ingress
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f argo-ingress.yaml
