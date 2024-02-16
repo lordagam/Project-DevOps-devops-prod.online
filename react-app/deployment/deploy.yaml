@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: react-app-deployment
-        image: docker.io/lordagam/project-devops:latest
+        image: docker push lordagam/project-devops
         resources:
           requests:
             cpu: "100m"
