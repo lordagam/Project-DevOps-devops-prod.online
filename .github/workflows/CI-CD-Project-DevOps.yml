@@ -156,8 +156,6 @@ jobs:
       run: kubectl get svc -A
 
     
-    - name: Deploy React-App
-      run: cd .. && cd react-app && cd deployment && cd argocd && ls -alh && kubectl apply -f react-app-argo-deploy.yaml
 
     - name: Deploy Grafana
       run: cd .. && cd monitoring && ls -alh  && kubectl apply -f grafana-argo-deploy.yaml
@@ -173,6 +171,8 @@ jobs:
     - name: Deploy Loki
       run: cd .. && cd monitoring && cd loki && cd argocd && ls -alh  && kubectl apply -f loki-argo-deploy.yaml
 
+    - name: Deploy React-App
+      run: cd .. && cd react-app && ls -alh && kubectl apply -f react-app-argo-deploy.yaml
 
 
       
