@@ -12,12 +12,19 @@ spec:
       labels:
         app: react-app
 spec:
-  containers:
-    - name: react-app
-      image: lordagam/project-devops:frontend
-      image: lordagam/project-devops:backend
-      image: lordagam/project-devops:mariadb
-      imagePullPolicy: Always
-      ports:
-        - containerPort: 80
-        - containerPort: 3000
+containers:
+  - name: frontend
+    image: lordagam/project-devops:frontend
+    imagePullPolicy: Always
+    ports:
+      - containerPort: 80
+  - name: backend
+    image: lordagam/project-devops:backend
+    imagePullPolicy: Always
+    ports:
+      - containerPort: 3000
+  - name: mariadb
+    image: lordagam/project-devops:mariadb
+    imagePullPolicy: Always
+    ports: 
+      - containerPort: 8080
