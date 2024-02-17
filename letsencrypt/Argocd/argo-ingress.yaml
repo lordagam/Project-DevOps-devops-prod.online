@@ -12,7 +12,7 @@ spec:
   tls:
   - hosts:
     - argocd.tomer-aws-project.online
-    secretName: letsencrypt-prod
+    secretName: argoletsencrypt-prod
   rules:
   - host: argocd.tomer-aws-project.online
     http:
