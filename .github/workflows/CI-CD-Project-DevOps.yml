@@ -90,7 +90,7 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}'
     
     - name: aws eks kubeconfig 
-      run: cd .. && cd Terraform && ls -alh && aws eks --region sa-east-1 update-kubeconfig --name $(cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}')
+      run: cd .. && cd Terraform && ls -alh && aws eks --region eu-west-3 update-kubeconfig --name $(cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}')
       
     - name: delete cert-manager
       run: kubectl delete namespace cert-manager || true
