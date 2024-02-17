@@ -177,15 +177,13 @@ jobs:
       run: cd .. && cd monitoring && cd grafana-deployment && cd argocd && kubectl apply -f grafana-argo-deploy.yaml
    
     - name: apply Grafana-ingress
-      run: cd .. && cd monitoring && cd grafana-deployment && ls -alh && kubectl apply -f grafana-ingress1.yaml
+      run: cd .. && cd monitoring && cd grafana-deployment && ls -alh && kubectl apply -f ingress-grafana1.yaml
       
     - name: install issue-prod-argocd
       run: cd .. && cd monitoring && cd grafana-deployment && ls -alh  && kubectl apply -f issue-grafana-prod.yaml
    
     - name: apply argo-ingress
-      run: cd .. && cd monitoring && cd grafana-deployment && ls -alh && kubectl apply -f argo-ingress.yaml
-    
-    
+      run: cd .. && cd monitoring && cd grafana-deployment && ls -alh && kubectl apply -f ingress-grafana.yaml
     
     
     #- name: install issue-prod-argocd
