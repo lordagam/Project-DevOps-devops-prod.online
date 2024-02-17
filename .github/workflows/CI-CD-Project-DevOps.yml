@@ -80,7 +80,7 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && terraform plan
       
     - name: Terraform Apply
-      run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
+      run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve && sleep 15 && ls -alh
     
     - name: output cluster name
       run: cd .. && cd Terraform && ls -alh && cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}'
