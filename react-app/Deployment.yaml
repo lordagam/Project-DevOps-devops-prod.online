@@ -14,7 +14,10 @@ spec:
 spec:
   containers:
     - name: react-app
-      image: kimafro/react-app:latest
+      image: lordagam/project-devops:frontend
+      image: lordagam/project-devops:backend
+      image: lordagam/project-devops:mariadb
       imagePullPolicy: Always
       ports:
         - containerPort: 80
+        - containerPort: 3000
