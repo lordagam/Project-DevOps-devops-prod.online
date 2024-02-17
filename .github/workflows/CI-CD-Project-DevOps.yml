@@ -124,7 +124,10 @@ jobs:
       run: kubectl create namespace argocd    
 
     - name: namespace-app-demo
-      run: kubectl create namespace app-demo    
+      run: kubectl create namespace app-demo
+
+    - name: namespace-app-demo
+      run: kubectl delete namespace app-demo  || true 
     
     
     - name: install_Ingress
