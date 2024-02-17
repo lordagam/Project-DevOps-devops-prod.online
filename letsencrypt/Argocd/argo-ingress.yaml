@@ -4,17 +4,17 @@ metadata:
   name: argo-cd-ui
   namespace: argocd
   annotations:
-    cert-manager.io/issuer: "letsencrypt-prod"
+    cert-manager.io/issuer: "letsencrypt-staging"
     ingress.kubernetes.io/proxy-body-size: 100M
     ingress.kubernetes.io/app-root: "/"
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - argocd.tomer-aws-project.online
-    secretName: argoletsencrypt-prod
+    - argocdd.tomer-aws-project.online
+    secretName: letsencrypt-prod
   rules:
-  - host: argocd.tomer-aws-project.online
+  - host: argocdd.tomer-aws-project.online
     http:
       paths:
       - path: /
