@@ -80,7 +80,11 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && terraform plan
       
     - name: Terraform Apply
-      run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve && sleep 15 && ls -alh
+      run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
+
+    - name: LooK for terraform.tfstate.backup
+      run: cd .. && cd Terraform && ls -alh && sleep 15
+
     
     - name: output cluster name
       run: cd .. && cd Terraform && ls -alh && cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}'
@@ -121,7 +125,6 @@ jobs:
 
     - name: namespace-app-demo
       run: kubectl create namespace app-demo    
-
     
     
     - name: install_Ingress
@@ -134,6 +137,7 @@ jobs:
         
     - name: install argo-cd
       run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -n argocd -f install.yaml && sleep 30
+
 
     - name: Pass argocd
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
