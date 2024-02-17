@@ -83,7 +83,7 @@ jobs:
       run: cd .. && cd Terraform && ls -alh && terraform apply -auto-approve
 
     - name: LooK for terraform.tfstate.backup
-      run: cd .. && cd Terraform && ls -alh && sleep 15
+      run: cd .. && cd Terraform && ls -alh && cat terraform.tfstate.backup && sleep 15
 
     
     - name: output cluster name
