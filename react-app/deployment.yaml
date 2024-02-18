@@ -17,9 +17,9 @@ spec:
       # Container Details
       containers:
       
-      - name: react-app
-        # Docker Image
-        image: yogun/react:latest
+      - name: react-app 
+        # Docker Image-yogun/react:latest
+        image: lordagam/project-devops
         resources:
          #cpu and memory limit
           limits:
