@@ -15,6 +15,6 @@ spec:
       - Replace=true
   project: default
   source: 
-    path: prometheus
+    path: monitoring/prometheus-deployment
     repoURL: "https://github.com/lordagam/Tomer-Joseph_project-test.git" 
     targetRevision: main
