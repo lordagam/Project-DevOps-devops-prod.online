@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - argo.devops-prod.online
-    secretName: argocd-secret-cert
+    - argocd.devops-prod.online
+    secretName: letsencrypt-prod
   rules:
-  - host: argo.devops-prod.online
+  - host: argocd.devops-prod.online
     http:
       paths:
       - path: /
