@@ -15,6 +15,6 @@ spec:
       - Replace=true
   project: default
   source: 
-    path: mimir
+    path: monitoring/mimir
     repoURL: "https://github.com/lordagam/Project-DevOps-devops-prod.online.git" 
     targetRevision: main
