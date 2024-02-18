@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: prometheus.tomer-aws-project.online
+  - host: prometheus.devops-prod.online
     http:
       paths:
       - path: /
