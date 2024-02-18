@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - aargocd.devops-prod.online
+    - gargocd.devops-prod.online
     secretName: letsencrypt-staging
   rules:
-  - host: aargocd.devops-prod.online
+  - host: gargocd.devops-prod.online
     http:
       paths:
       - path: /
