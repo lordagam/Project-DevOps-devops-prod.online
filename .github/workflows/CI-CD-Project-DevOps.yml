@@ -28,7 +28,7 @@ jobs:
             password: ${{ secrets.DOCKERHUB_TOKEN }}
      
       - name: docker push
-        run: docker push lordagam/project-devops:mariadb && docker push lordagam/project-devops:backend && docker push lordagam/project-devops:frontend
+        run: docker push lordagam/project-devops:mysql && docker push lordagam/project-devops:frontend
    
       - uses: actions/checkout@master
       - name: Slack Notification 
