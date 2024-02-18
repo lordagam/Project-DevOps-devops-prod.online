@@ -22,5 +22,5 @@ spec:
         backend:
           service:
             name: react-app
-            port:
-              name: 3100
+            port: 3000
+              #name: 3100
