@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - argo.tomer-aws-project.online
+    - argo.devops-prod.online
     secretName: argocd-secret-cert
   rules:
-  - host: argo.tomer-aws-project.online
+  - host: argo.devops-prod.online
     http:
       paths:
       - path: /
