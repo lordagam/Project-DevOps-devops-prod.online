@@ -20,6 +20,7 @@ spec:
       - name: react-app 
         # Docker Image-yogun/react:latest
         image: lordagam/project-devops:frontend
+        imagepullpolicy: Always
         resources:
          #cpu and memory limit
           limits:
