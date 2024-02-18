@@ -103,7 +103,7 @@ jobs:
  #     run: kubectl delete namespace ingress-nginx || true
 
     - name: namespace-ingress-nginx
-      run: kubectl create namespace ingress-nginx 
+      run: kubectl create namespace ingress-nginx || true
   
     - name: delete react-app
       run: kubectl delete namespace react-app  || true
@@ -111,24 +111,24 @@ jobs:
     - name: namespace-react-app
       run: kubectl create namespace react-app
 
-    - name: delete namespace-argocd
-      run: kubectl delete namespace argocd  || true
+  #  - name: delete namespace-argocd
+  #    run: kubectl delete namespace argocd  || true
       
     - name: delete monitoring
       run: kubectl delete namespace monitoring  || true
 
     - name: namespace-monitoring
-      run: kubectl create namespace monitoring  
+      run: kubectl create namespace monitoring  || true
     
     - name: namespace-argocd
-      run: kubectl create namespace argocd    
+      run: kubectl create namespace argocd || true  
 
    
     - name: namespace-app-demo
       run: kubectl delete namespace app-demo  || true 
     
     - name: namespace-app-demo
-      run: kubectl create namespace app-demo
+      run: kubectl create namespace app-demo || true
     
     
     - name: install_Ingress
