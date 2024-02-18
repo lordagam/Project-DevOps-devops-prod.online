@@ -15,6 +15,6 @@ spec:
       - Replace=true
   project: default
   source: 
-    path: tempo
+    path: monitoring/tempo
     repoURL: "https://github.com/lordagam/Project-DevOps-devops-prod.online.git" 
     targetRevision: main
