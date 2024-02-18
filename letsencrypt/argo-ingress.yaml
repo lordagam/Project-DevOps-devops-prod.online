@@ -4,7 +4,7 @@ metadata:
   name: argo-cd-ui
   namespace: argocd
   annotations:
-    cert-manager.io/issuer: "letsencrypt-stage"
+    cert-manager.io/issuer: "letsencrypt-staging"
     ingress.kubernetes.io/proxy-body-size: 100M
     ingress.kubernetes.io/app-root: "/"
 spec:
@@ -12,7 +12,7 @@ spec:
   tls:
   - hosts:
     - aargocd.devops-prod.online
-    secretName: letsencrypt-stage
+    secretName: letsencrypt-staging
   rules:
   - host: aargocd.devops-prod.online
     http:
