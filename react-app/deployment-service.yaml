@@ -5,7 +5,6 @@ metadata:
   name: react-app
 spec:
   #type of the service
-  type: NodePort
   selector:
     app: react-app
   ports:
