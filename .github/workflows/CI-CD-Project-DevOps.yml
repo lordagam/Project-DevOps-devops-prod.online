@@ -147,16 +147,34 @@ jobs:
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 
-    - name: apply argo-ingress
-      run: cd .. && cd letsencrypt && ls -alh && kubectl apply -f argo-ingress1.yaml
+    - name: apply ingress-nginx
+      run: cd .. && cd ingress-nginx && ls -alh && kubectl apply -f ingress-nginx-ingress1.yaml
       
-    - name: install issue-prod-argocd
-      run: cd .. && cd letsencrypt && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
+    - name: install issue-prod-ingress-nginx
+      run: cd .. && cd ingress-nginx && ls -alh  && kubectl apply -f issue-prod-ingress-nginx.yaml
 
-    - name: apply argo-ingress
-      run: cd .. && cd letsencrypt && ls -alh && kubectl apply -f argo-ingress.yaml
+    - name: apply ingress-nginx
+      run: cd .. && cd ingress-nginx && ls -alh && kubectl apply -f ingress-nginx-ingress.yaml
 
     
+     
+#    - name: apply argo-ingress
+#      run: cd .. && cd letsencrypt && ls -alh && kubectl apply -f argo-ingress1.yaml
+      
+#    - name: install issue-prod-argocd
+#      run: cd .. && cd letsencrypt && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
+
+#    - name: apply argo-ingress
+#      run: cd .. && cd letsencrypt && ls -alh && kubectl apply -f argo-ingress.yaml
+
+
+  
+   
+   
+   
+   
+   
+   
    # - name: apply argo-staging1
    #   run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f ingress-letsencrypt-staging1.yaml -n argocd
 
@@ -234,23 +252,6 @@ jobs:
     
     - name: Deploy React-App
       run: cd .. && cd react-app && ls -alh && kubectl apply -f react-app-argo-deploy.yaml
-
-    
-  #  - name: apply React-App-staging1
-  #    run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-staging1.yaml -n argocd
-
-    - name: apply React-App-Issuer-staging
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f Issuer-letsencrypt-staging.yaml -n argocd
-    
-    - name: apply React-App-Issuer-prod
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f Issuer-letsencrypt-prod.yaml -n argocd
-
-    - name: apply React-App-staging2
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-staging2.yaml -n argocd
-
-    - name: apply React-App-prod1
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-prod1.yaml -n argocd
-
 
     
     
