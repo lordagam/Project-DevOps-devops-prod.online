@@ -197,6 +197,18 @@ jobs:
     - name: Deploy Loki
       run: cd .. && cd monitoring && cd loki && cd argocd && ls -alh  && kubectl apply -f loki-argo-deploy.yaml
 
+    - name: Deploy mimir
+      run: cd .. && cd monitoring && cd mimir && cd argocd && ls -alh  && kubectl apply -f mimir-argo-deploy.yaml
+    
+    - name: Deploy tempo
+      run: cd .. && cd monitoring && cd tempo && cd argocd && ls -alh  && kubectl apply -f tempo-argo-deploy.yaml
+    
+    - name: Deploy promtail
+      run: cd .. && cd monitoring && cd promtail && cd argocd && ls -alh  && kubectl apply -f promtail-argo-deploy.yaml
+
+    
+    
+    
     - name: Deploy React-App
       run: cd .. && cd react-app && ls -alh && kubectl apply -f react-app-argo-deploy.yaml
 
@@ -205,6 +217,12 @@ jobs:
 
 
 
+  
+    
+    
+    
+    
+    
     - name:  get ingress ns argocd
       run: kubectl get ingress -n argocd
     
