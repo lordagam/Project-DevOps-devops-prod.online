@@ -21,4 +21,4 @@ spec:
           service:
             name: react-app
             port:
-              number: 31000
+              number: 3000
