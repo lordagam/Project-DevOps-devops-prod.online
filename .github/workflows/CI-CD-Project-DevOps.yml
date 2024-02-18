@@ -236,8 +236,8 @@ jobs:
       run: cd .. && cd react-app && ls -alh && kubectl apply -f react-app-argo-deploy.yaml
 
     
-    - name: apply React-App-staging1
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-staging1.yaml -n argocd
+  #  - name: apply React-App-staging1
+  #    run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-staging1.yaml -n argocd
 
     - name: apply React-App-Issuer-staging
       run: cd .. && cd react-app && ls -alh && kubectl apply -f Issuer-letsencrypt-staging.yaml -n argocd
