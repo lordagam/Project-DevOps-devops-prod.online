@@ -92,24 +92,24 @@ jobs:
     - name: aws eks kubeconfig 
       run: cd .. && cd Terraform && ls -alh && aws eks --region eu-west-3 update-kubeconfig --name $(cat terraform.tfstate.backup | grep -A2 'cluster_name' | grep 'value' | awk -F'"' '{print $4}')
       
-    - name: delete cert-manager
-      run: kubectl delete namespace cert-manager || true
+   # - name: delete cert-manager
+   #   run: kubectl delete namespace cert-manager || true
    
      
-    - name: namespace-cert-manager
-      run: kubectl create namespace cert-manager 
+ #   - name: namespace-cert-manager
+ #     run: kubectl create namespace cert-manager 
     
-    - name: delete ingress-nginx
-      run: kubectl delete namespace ingress-nginx || true
+ #   - name: delete ingress-nginx
+ #     run: kubectl delete namespace ingress-nginx || true
 
     - name: namespace-ingress-nginx
       run: kubectl create namespace ingress-nginx 
   
-    - name: delete react
-      run: kubectl delete namespace react  || true
+    - name: delete react-app
+      run: kubectl delete namespace react-app  || true
 
-    - name: namespace-react
-      run: kubectl create namespace react
+    - name: namespace-react-app
+      run: kubectl create namespace react-app
 
     - name: delete namespace-argocd
       run: kubectl delete namespace argocd  || true
