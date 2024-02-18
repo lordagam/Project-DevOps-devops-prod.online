@@ -235,14 +235,23 @@ jobs:
     - name: Deploy React-App
       run: cd .. && cd react-app && ls -alh && kubectl apply -f react-app-argo-deploy.yaml
 
-    - name: apply argo-ingress
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f react-app-ingress1.yaml
-      
-    - name: install issue-prod-argocd
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f issue-prod-react-app.yaml
+    
+    - name: apply React-App-staging1
+      run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-staging1.yaml -n argocd
 
-    - name: apply argo-ingress
-      run: cd .. && cd react-app && ls -alh && kubectl apply -f react-app-ingress.yaml
+    - name: apply React-App-Issuer-staging
+      run: cd .. && cd react-app && ls -alh && kubectl apply -f Issuer-letsencrypt-staging.yaml -n argocd
+    
+    - name: apply React-App-Issuer-prod
+      run: cd .. && cd react-app && ls -alh && kubectl apply -f Issuer-letsencrypt-prod.yaml -n argocd
+
+    - name: apply React-App-staging2
+      run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-staging2.yaml -n argocd
+
+    - name: apply React-App-prod1
+      run: cd .. && cd react-app && ls -alh && kubectl apply -f ingress-letsencrypt-prod1.yaml -n argocd
+
+
     
     
     
