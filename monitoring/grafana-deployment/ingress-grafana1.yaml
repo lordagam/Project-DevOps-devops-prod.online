@@ -4,15 +4,15 @@ metadata:
   name: grafana
   namespace: monitoring
   annotations:
-    cert-manager.io/issuer: "letsencrypt-staging"
+    #cert-manager.io/issuer: "letsencrypt-staging"
     ingress.kubernetes.io/proxy-body-size: 100M
     ingress.kubernetes.io/app-root: "/"
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - grafana.tomer-aws-project.online
-    secretName: letsencrypt-prod
+  #tls:
+  #- hosts:
+   # - grafana.tomer-aws-project.online
+    #secretName: letsencrypt-prod
   rules:
   - host: grafana.tomer-aws-project.online
     http:
