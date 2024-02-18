@@ -1,44 +1,32 @@
-version: "3.7"
+version: '3'
 services:
-  db:
-    environment:
-      MYSQL_DATABASE: example
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
-    image: mariadb:10.6.4-focal
-    restart: always
-    secrets:
-      - db-password
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - spring-mysql
-  backend:
-    build:
-      context: backend
-      target: dev-envs
-    environment:
-      MYSQL_HOST: db
-    networks:
-      - react-spring
-      - spring-mysql
-    depends_on:
-      - db
-    restart: on-failure:5
   frontend:
     build:
-      context: frontend
-      target: development
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - 3000:3000
-    networks:
-      - react-spring
     depends_on:
       - backend
-volumes:
-  db-data: {}
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=db
+      - DB_PASSWORD_FILE=/run/secrets/db_password
+    secrets:
+      - db_password
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0.27
+    environment:
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_password
+    secrets:
+      - db_password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
 secrets:
-  db-password:
-    file: db/password.txt
-networks:
-  react-spring: {}
-  spring-mysql: {}
+  db_password:
+    file: ./db/password.txt
