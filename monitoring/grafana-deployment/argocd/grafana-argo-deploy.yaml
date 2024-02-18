@@ -15,7 +15,7 @@ spec:
       - Replace=true
   project: default
   source: 
-    path: grafana
+    path: monitoring/grafana-deployment/argocd/grafana-argo-deploy.yaml
     repoURL: "https://github.com/lordagam/Project-DevOps-devops-prod.online.git" 
     targetRevision: main
     #helm:
