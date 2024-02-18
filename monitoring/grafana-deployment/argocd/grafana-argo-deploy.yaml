@@ -16,7 +16,7 @@ spec:
   project: default
   source: 
     path: grafana-deployment
-    repoURL: "https://github.com/lordagam/Tomer-Joseph_project-test.git" 
+    repoURL: "https://github.com/lordagam/Project-DevOps-devops-prod.online.git" 
     targetRevision: main
     #helm:
     #  releaseName: grafana
