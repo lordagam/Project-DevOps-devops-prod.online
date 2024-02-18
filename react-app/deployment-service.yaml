@@ -9,7 +9,7 @@ spec:
   selector:
     app: demo-react-app
   ports:
-  - port: 3000
+  - port: 3050
     targetPort: 3000
     protocol: TCP
-    nodePort: 3000
+    nodePort: 31000
