@@ -147,30 +147,30 @@ jobs:
       run: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 
-   # - name: apply argo-ingress
-   #   run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f argo-ingress1.yaml
+    - name: apply argo-ingress
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f argo-ingress1.yaml
       
-  #  - name: install issue-prod-argocd
-  #    run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
+    - name: install issue-prod-argocd
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh  && kubectl apply -f issue-prod-argocd.yaml
 
-  #  - name: apply argo-ingress
-  #      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f argo-ingress.yaml
+    - name: apply argo-ingress
+      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f argo-ingress.yaml
 
     
-    - name: apply argo-staging1
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f ingress-letsencrypt-staging1.yaml -n argocd
+   # - name: apply argo-staging1
+   #   run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f ingress-letsencrypt-staging1.yaml -n argocd
 
-    - name: apply argo-Issuer-staging
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f Issuer-letsencrypt-staging.yaml -n argocd
+  #  - name: apply argo-Issuer-staging
+  #    run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f Issuer-letsencrypt-staging.yaml -n argocd
     
-    - name: apply argo-Issuer-prod
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f Issuer-letsencrypt-prod.yaml -n argocd
+  #  - name: apply argo-Issuer-prod
+  #    run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f Issuer-letsencrypt-prod.yaml -n argocd
 
-    - name: apply argo-staging2
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f ingress-letsencrypt-staging2.yaml -n argocd
+  #  - name: apply argo-staging2
+  #    run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f ingress-letsencrypt-staging2.yaml -n argocd
 
-    - name: apply argo-prod1
-      run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f ingress-letsencrypt-prod1.yaml -n argocd
+  #  - name: apply argo-prod1
+  #    run: cd .. && cd letsencrypt && cd Argocd && ls -alh && kubectl apply -f ingress-letsencrypt-prod1.yaml -n argocd
 
 
     
