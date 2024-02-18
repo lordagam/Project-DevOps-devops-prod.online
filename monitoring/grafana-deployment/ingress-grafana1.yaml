@@ -14,7 +14,7 @@ spec:
    # - grafana.tomer-aws-project.online
     #secretName: letsencrypt-prod
   rules:
-  - host: grafana.tomer-aws-project.online
+  - host: grafana.devops-prod.online
     http:
       paths:
       - path: /
