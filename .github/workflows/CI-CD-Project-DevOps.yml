@@ -159,7 +159,7 @@ jobs:
     
      
     - name: apply argo-ingress
-      run: cd .. && cd letsencrypt && ls -alh
+      run: cd .. && cd letsencrypt && ls -alh && kubectl apply -f issue-stage-argocd.yaml
       #  && kubectl apply -f argo-ingress1.yaml
       
     - name: install issue-prod-argocd
