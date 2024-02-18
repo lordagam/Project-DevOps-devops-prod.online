@@ -15,6 +15,6 @@ spec:
       - Replace=true
   project: default
   source: 
-    path: loki
+    path: monitoring/loki
     repoURL: "https://github.com/lordagam/Project-DevOps-devops-prod.online.git" 
     targetRevision: main
