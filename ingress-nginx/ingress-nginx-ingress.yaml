@@ -23,4 +23,4 @@ spec:
           service:
             name: ingress-nginx-controller
             port:
-              number: 80
+              name: http
