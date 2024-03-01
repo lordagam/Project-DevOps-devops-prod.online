@@ -3,7 +3,7 @@ on:
   schedule:
    - cron: '0 0 * * *'
   push:
-  
+## Continuous Integration (CI) - Build, Test, Push  
 jobs:
  CI-Build-Test-Push:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the stack
         run: cd react-app && ls && docker-compose up --build -d 
-      
+     # Test the URL of the build 
       - name: Run curl Test
         run: |
           sudo apt-get update; sudo apt-get install -y curl && curl http://localhost:3000 && docker ps && pwd
