@@ -61,7 +61,7 @@ jobs:
 ### Continuous Deployment (CD) - EKS, Cert-Manager, Ingress-Nginx, ArgoDC, monitoring, react-app  ###
 
  CD-Terraform:
-   # needs: Snyk-security
+    needs: Snyk-security
     runs-on: self-hosted    
     defaults:
       run:
