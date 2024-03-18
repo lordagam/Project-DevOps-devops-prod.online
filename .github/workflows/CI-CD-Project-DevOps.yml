@@ -1,7 +1,7 @@
 name: CI-CD-Project-DevOps
 on: 
-  schedule:
-   - cron: '0 0 * * *'
+  #schedule:
+   #- cron: '0 0 * * *'
   push:
 ### Continuous Integration (CI) - Build, Test, Push ### 
 jobs:
